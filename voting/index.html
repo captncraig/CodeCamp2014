@@ -1,0 +1,42 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="thrift.js"></script>
+	<script type="text/javascript" src="gen-js/vote_types.js"></script>
+	<script type="text/javascript" src="gen-js/VotingService.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var transport = new Thrift.Transport("http://localhost:9090");
+			var protocol  = new Thrift.Protocol(transport);
+			window.client = new VotingServiceClient(protocol);
+			
+			
+			try {
+				var items = client.GetPossibleVotes();
+				items.forEach(function(item){
+					$("#list").append("<div class='row'><div class='col-md-2'><h2>"+item+"</h2></div><div class='col-md-2'><h2><button id='"+item+"' class='btn btn-primary'>Vote!</button></h2></div></div>");
+				})
+				$("button").click(placeVote)
+			} catch(ouch){
+				console.log(ouch)
+			}
+		});
+		
+		function placeVote(e){
+			var vote = e.target.id;
+			try {
+				client.PlaceVote(vote);
+			} catch(ouch){
+				console.log(ouch)
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class='container'>
+		<h1>Which language would you like to see me code in?</h1>
+		<div id="list"/>
+	</div>
+</body>

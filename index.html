@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1024" />
+  <title>Thrift!</title>
+
+  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+  <link rel="stylesheet" href="css/style.css">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <div id="impress">
+
+   
+    <div id="introduction" class="step" data-x="0" data-y="0">
+      <h1 class="line">High Performance Web Services with Apache Thrift</h1>
+      <h2>Craig Peterson<h2>
+      <h2>Utah Code Camp, Spring 2014<h2>
+    </div>
+	<div id="problem" class="step" data-x="500" data-y="0">
+		<h1>What problem are we trying to solve?</h1>
+		<p class="substep">Server A needs to talk to Server B...</p>
+		<p class="substep">...to get data</p>
+		<p class="substep">..to perform operations</p>
+	</div>
+	
+	<div id="rest" class="step" data-x="500" data-y="0" data-rotate-x="-90">
+		<p class='rest'>REST!</p>
+		<ul>
+		<li class='substep star'>Easy to use!</li>
+		<li class='substep star'>Simple tooling!</li>
+		<li class='substep star'>HTTP!</li>
+		<li class='substep star'>URIs!</li>
+		</ul>
+	</div>
+	
+	<div id="sux" class="step" data-x="2000" data-y="0" data-rotate-x="-90">
+		<h1>What's wrong with REST?</h1>
+		<ul>
+			<li class="substep">Tons of frameworks<span class='substep'>  <-- Good and bad</span></li>
+			<li class="substep">Many choices to make:
+				<ul>
+					<li class='substep'>Routes: <span class='pre'>/users/123/orders</span> or <span class='pre'>/orders?user=123</span></li>
+					
+					<li class='substep'>Data Types and field names: <span class='pre'>userID</span> or <span class='pre'>UserId?</span></li>
+					<li class='substep'>Versioning: <span class='pre'>myurl.com/v1/user/123</span> or <span class='pre'>Accept:application/user-v1+json</span></li>
+					<li class='substep'>Error Reporting: Special header, or content body?</li>
+					<li class='substep'>Response codes?</li>
+					
+				</ul>
+			</li>
+			<li class="substep">No standard way to communicate these choices</li>
+			<li class="substep">All clients must know all of these details</li>
+		</ul>
+	</div>
+	<div id="culture" class="step" data-x="2000" data-y="0" data-rotate-x="90">
+		<h1>Cultural factors</h1>
+		<ul>
+			<li class='substep'>Easier to think of service-to-service calls as Method calls</li>
+			<li class='substep'>Hard to map <span class='pre'>CancelRenewingOrderWithNewMigration()</span> to a RESTful resource</li>
+			<li class='substep'>Clients want a package they can install, not just a spec</li>
+		</ul>
+		<p class='substep' style="font-size:300%; margin-top:30px;"> What else is there if not REST?</p>
+	</div>
+	
+	<div id="rpc" class="step" data-x="2000" data-y="0">
+		<div class='rpc'>
+			<div class='r'>R</div>
+			<div class='emote'>emote</div>
+			<div class='p'>P</div>
+			<div class='rocedure'>rocedure</div>
+			<div class='c'>C</div>
+			<div class='all'>all</div>
+		</div>
+		<div style='clear:both'/>
+		<div class='substep'>
+			<h3>^ Bad Word?</h3>
+		</div>
+	</div>
+
+  </div> 
+  <script src="js/impress.js"></script>
+  <script>impress().init();</script>
+
+</body>
+</html>
