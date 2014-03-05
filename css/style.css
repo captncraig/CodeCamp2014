@@ -130,7 +130,6 @@ color: black;
 }
 
 /* RPC Slide */
-
 .rpc{
 	width: 9000px;
 	clear: both;
@@ -169,7 +168,110 @@ color: black;
 	max-width: 500px;
 }
 
+/*Components */
+#components{
+	height: 900px;
+	width: 900px;
+	border:1px solid black;
+}
+#components .box{
+	text-align: center;
+	height: 100px;
+	width: 200px;
+	font-size: 150%;
+	line-height: 50px;
+	position: absolute;
+	-webkit-transition: all 1s;
+	-moz-transition:    all 1s;
+	-ms-transition:     all 1s;
+	-o-transition:      all 1s;
+	transition:         all 1s; 
+}
+#components .idl{
+	background-color: #BDD0E9;
+	top: 200px;
+	left: 550px;
+}
 
+#components .gen{
+	top: 200px;
+	left: 550px;
+}
+#components .gen.active {
+	background-color: #41719C;
+	color: white;
+	left: 100px;
+}
+#components .lib div{
+	position: absolute;
+	background-color: #BDD0E9;
+	height: 230px;
+	width: 220px;
+	top: 310px;
+	left: 90px;
+}
+#components .lib span{
+	position: absolute;
+	top: 550px;
+	left: 180px;
+}
+#components .prot{
+	background-color: #ED7D31;
+	color: white;
+	top: 320px;
+	left: 100px;
+}
+#components .protEx{
+	position: absolute;
+	top: 340px;
+	left: 350px;
+}
+#components .trans{
+	background-color: #ED7D31;
+	color: white;
+	top: 430px;
+	left: 100px;
+}
+#components .transEx{
+	position: absolute;
+	top: 450px;
+	left: 350px;
+}
+#components .server div{
+	position: absolute;
+	background-color: #BDD0E9;
+	height: 230px;
+	width: 220px;
+	top: 590px;
+	left: 90px;
+}
+#components .server span{
+	position: absolute;
+	top: 830px;
+	left: 180px;
+}
+#components .hand{
+	background-color: #FEC000;
+	color: white;
+	top: 600px;
+	left: 100px;
+}
+#components .handEx{
+	position: absolute;
+	top: 620px;
+	left: 350px;
+}
+#components .serv{
+	background-color: #4F88BB;
+	color: white;
+	top: 710px;
+	left: 100px;
+}
+#components .client{
+	position: absolute;
+	top: 240px;
+	left: 350px;
+}
 
 
 

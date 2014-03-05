@@ -12,7 +12,7 @@
 			var protocol  = new Thrift.Protocol(transport);
 			window.client = new VotingServiceClient(protocol);
 			
-			
+			console.log(client.GetVoteCounts())
 			try {
 				var items = client.GetPossibleVotes();
 				items.forEach(function(item){
