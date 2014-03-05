@@ -8,7 +8,7 @@
 	<script type="text/javascript" src="gen-js/VotingService.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			var transport = new Thrift.Transport("http://localhost:9090");
+			var transport = new Thrift.Transport("http://thriftTutorial.cloudapp.net:9090");
 			var protocol  = new Thrift.Protocol(transport);
 			window.client = new VotingServiceClient(protocol);
 			
