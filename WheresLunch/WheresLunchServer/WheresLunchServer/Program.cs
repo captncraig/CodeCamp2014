@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
 using Thrift.Protocol;
 using Thrift.Server;
 using Thrift.Transport;
@@ -35,6 +37,30 @@ namespace WheresLunchServer
         }
     }
 
+    class HttpTransport : TServerTransport
+    {
+        private HttpListener _listener;
+
+        public override void Listen()
+        {
+            _listener = new HttpListener();
+            _listener.Prefixes.Add("http://*:9012/");
+            _listener.Start();
+        }
+
+        public override void Close()
+        {
+            _listener.Stop();
+        }
+
+        protected override TTransport AcceptImpl()
+        {
+            var ctx = _listener.GetContextAsync().Result;
+            ctx.Response.AddHeader("Access-Control-Allow-Origin","*");
+            return new TStreamTransport(ctx.Request.InputStream,ctx.Response.OutputStream);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -44,8 +70,18 @@ namespace WheresLunchServer
             var transport = new TServerSocket(9011,2000,true);
             var server = new TThreadPoolServer(processor, transport, new TTransportFactory(),
                 new TCompactProtocol.Factory());
-            Console.WriteLine("Starting server on port 9011");
-            server.Serve();
+            
+            Task.Factory.StartNew(() =>
+            {
+                Console.WriteLine("Starting server on port 9011");
+                server.Serve();
+            });
+
+            var httpTransport = new HttpTransport();
+            var httpServer = new TThreadPoolServer(processor, httpTransport, new TTransportFactory(),
+                new TJSONProtocol.Factory());
+            Console.WriteLine("Starting http server on port 9012");
+            httpServer.Serve();
         }
     }
 }
