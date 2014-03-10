@@ -12,14 +12,21 @@ namespace WheresLunchServer
     class LunchLadyHandler : LunchService.Iface
     {
 
-        private readonly List<string> _suggestions = new List<string>{"McDonalds","Super Wok","Indian Princess","Burrito Bandit"}; 
+        private readonly List<string> _suggestions = new List<string>{"McDonalds","Super Wok","Indian Princess","Burrito Bandit","Hula Hut"}; 
 
-        private readonly IDictionary<string,string> _votes = new Dictionary<string, string>{{"Joe","Tucanos"},{"Steve","Del Taco"}}; 
+        private readonly IDictionary<string,string> _votes = new Dictionary<string, string>();
+
+        public LunchLadyHandler()
+        {
+            PlaceVote(new Vote{Name = "Joe",Restaurant = "Taco Bell"});
+            PlaceVote(new Vote{Name = "Steve",Restaurant = "Bubba's Burgers"});
+        }
 
         public void PlaceVote(Vote vote)
         {
             Console.WriteLine("Vote from {0} for {1}",vote.Name, vote.Restaurant);
             _votes[vote.Name] = vote.Restaurant;
+            if(!_suggestions.Contains(vote.Restaurant)) _suggestions.Add(vote.Restaurant);
         }
 
         public List<string> GetSuggestions()

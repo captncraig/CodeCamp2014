@@ -1,0 +1,39 @@
+<html>
+<head>
+
+
+</head>
+<body>
+<div class='container'>
+	Your name:<input type='text' id='name'></input>
+	<ul id='list'>
+		<li><input type='text' id='writeIn'></input><button id='freeForm'>vote</button></li>
+	
+	</ul>
+	
+</div>
+<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.0.min.js'></script>
+<script type='text/javascript' src='thrift.js'></script>
+<script type='text/javascript' src='lunch_types.js'></script>
+<script type='text/javascript' src='LunchService.js'></script>
+<script type='text/javascript'>
+	var transport = new Thrift.Transport("http://localhost:9012")
+	var protocol = new Thrift.Protocol(transport);
+	var client = new LunchServiceClient(protocol);
+	var suggestions = client.GetSuggestions();
+	suggestions.forEach(function(s){
+		var div = $("<li><span class='suggestion'>"+s+"</span><button id='"+s+"'>vote</button></li>");
+		$("#list").append(div);
+	});
+	$("button").click(vote);
+	function vote(a){
+		var vote = a.target.id;
+		if(vote == 'freeForm') vote = $("#writeIn").val();
+		console.log(vote);
+		var v = new Vote();
+		v.Name = $("#name").val();
+		v.Restaurant = vote;
+		client.PlaceVote(v);
+	}
+</script>
+</body>

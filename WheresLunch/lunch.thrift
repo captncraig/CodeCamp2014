@@ -4,6 +4,7 @@
 namespace csharp WheresLunchServer
 namespace go lunch
 
+
 /** Represents a single vote. Each user may only vote once*/
 struct Vote{
 	/** Name of voter. Must be unique. */
