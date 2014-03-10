@@ -16,6 +16,7 @@ func main(){
 	if err := transport.Open(); err != nil {
                fmt.Println(err)
     }
+	
 	client := lunch.NewLunchServiceClientFactory(transport,thrift.NewTCompactProtocolFactory())
 	result, _ := client.MakeDecision();
 	fmt.Printf("Eat at: %s!",result)
