@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=1024" />
   <title>Thrift!</title>
 
-  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <link rel="stylesheet" href="css/style.css">
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
+<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.0.min.js'></script>
 </head>
 <body>
 
@@ -53,14 +52,101 @@
 		<p class='substep' style="width:2000px;"><code>€ŠØŠØØØÿCreateUserØØØØƒØŠ÷ØŠØØØæJoe÷Ø§ØØØçilovedolphinsØØ</code></p>
 		<p class='substep' style="width:2000px;"><code>‚!ØÿCreateUser£¢æJoe¢çilovedolphinsØØ</code></p>
 		<p class='substep' style="width:2000px;"><code>[1,"CreateUser",1,0,{"1":{"rec":{"1":{"str":"Joe"},"2":{"str":"ilovedolphins"}}}}]</code></p>
-		
 	</div>
 	
 	<div id="componentsback" class="step" data-x="2000" data-y="0"></div>
-
+	<div id="transport" class="step" data-x="2000" data-y="-1000" >
+		<h1>Transport</h1>
+		<p>How do I get bytes from A to B?</p>
+		<p><span class='substep'>TCP</span><span class='substep'>, HTTP</span><span class='substep'>, Message Bus, Email, Flat files</span></p>
+		<p class='substep'>Easy to make new implementation</p>
+		<p class='substep'><i>Any</i> transport can use <i>any</i> protocol.</p>
+	</div>
+	
+	<div id='lunch' class='step'>
+		<h1>Demo</h1>
+		<p>What are we going to build?</p>
+		<p class='substep'>Answer to the ultimate question:</p>
+		<p class='substep'>"Where are we going for Lunch?"</p>
+	</div>
+	<div id='lunchBlocks' class='step' data-rotate-x="-90">
+		<div class='box server'>Server<br/>(C#)</div>
+		<div class='box web'>Voting Page<br/>(html/js)</div>
+		<div class='box decider'>Decision Making App<br/> (go!)</div>
+		<p class='substep'><a href='http://github.com/captncraig/CodeCamp2014'>Source code</a></p>
+	</div>
+	<div id='argue' class='step' data-y="-1000" data-rotate-x="-90" data-rotate-z="90">
+		<p>But I could have done that easier using REST!</p>
+	</div>
+	<div id='argue2' class='step' data-y="-1000" data-rotate-x="-90" data-rotate-z="105">
+		<p>Maybe</p>
+	</div>
+	<div id='argue3' class='step' data-rotate-z="30">
+		<p>Why Rest is better than thrift:</p>
+	</div>
+	<div id='argue4' class='step' data-rotate-x="-90">
+		<p>Simpler tools.</p>
+		<p class='substep'>I can put a url in my browser and see something instantly.</p>
+		<p class='substep'>Every language has an http library.</p>
+	</div>
+	<div id='argue5' class='step' data-rotate-x="-180" data-rotate-z="-15">
+		<p>HTTP is nice</p>
+		<p class='substep'>Custom Headers</p>
+		<p class='substep'>Caching Proxies</p>
+		<p class='substep'>Fiddler</p>
+	</div>
+	<div id='argue6' class='step' data-rotate-x="-270" data-rotate-z="-30">
+		<p>We already know how to do it</p>
+		<p class='substep' style='font-size:110%'>^bad argument to stick with something</p>
+	</div>
+	
+	<div id='counter' class='step' data-x="1000">
+		<p>Why Thrift is better than REST:</p>
+	</div>
+	<div id='counter2' class='step' data-x="866" data-z="-500" data-rotate-y="30">
+		<p>Performance</p>
+		<p class='substep'>Lower network utilization</p>
+		<p class='substep'>Faster serialization = lower CPU</p>
+	</div>
+	<div id='counter3' class='step' data-x="500" data-z="-866" data-rotate-y="60">
+		<p>Interoperability</p>
+		<p class='substep'>Generate a client in any language you want</p>
+		<p class='substep'>Stronger guarantees of uniformity</p>
+	</div>
+	<div id='counter4' class='step' data-x="0" data-z="-1000" data-rotate-y="90">
+		<p>Simplicity</p>
+		<p class='substep'>Very few features</p>
+		<p class='substep'>Decoupled components</p>
+		<p class='substep'>Easy to extend</p>
+	</div>
+	<div id='counter5' class='step' data-x="-500" data-z="-866" data-rotate-y="120">
+		<p>Community</p>
+		<p class='substep'>Helpful</p>
+		<p class='substep'>Accept patches</p>
+	</div>
+	<div id='counter6' class='step' data-x="-866" data-z="-500" data-rotate-y="150">
+		<p>Philosophy</p>
+		<p class='substep'>My company thinks in RPC terms</p>
+		<p class='substep'>My company wants published client packages</p>
+	</div>
+	<div id='counter7' class='step' data-x="-1000" data-z="0" data-rotate-y="180">
+		<p>Use what makes sense for you.</p>
+	</div>
+	
+	
   </div> 
   <script src="js/impress.js"></script>
-  <script>impress().init();</script>
+  <script>
+	impress().init();
+	$(document).on('impress:stepenter', function(e) {
+                    var currentSlide = $(e.target).attr('id');
+ 
+                    if (currentSlide === 'lunch') {
+                        $("#components").hide();
+                    }
+                });
+  
+  </script>
 
 </body>
 </html>

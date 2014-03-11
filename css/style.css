@@ -276,52 +276,42 @@ color: black;
 	left: 350px;
 }
 
-.in1{
-position: relative;
-	left: 30px;
-}
-.in2{
-position: relative;
-	left: 60px;
-}
-.in3{
-position: relative;
-	left: 90px;
-}
-.in4{
-position: relative;
-	left: 120px;
-}
-.in5{
-position: relative;
-	left: 150px;
-}
-.in6{
-position: relative;
-	left: 180px;
+#lunchBlocks{
+	width: 800px;
+	height: 800px;
 }
 
-/*Protocol Slide*/
-#protocol .seg{
-	
-	clear:both;
-	line-height:30px;
-}
-#protocol .block{
-	height: 30px;
-	width: 250px;
-	padding-left:10px;
+#lunchBlocks .box{
+	width: 300px;
+	height: 200px;
+	font-size: 300%;
 	border:1px solid black;
-	float:left;
-}
-#protocol .blockMsg,#protocol .jsonMsg{
-	float:left;
-	margin-right:40px;
-}
-#protocol .jsonMsg .block{
-	width: 150px;
+	background-color: #41719C;
+	color: white;
+	position: absolute;
+	text-align:center;
 }
 
+#lunchBlocks .server{
+	left: 250px;
+	top: 50px;
+}
+
+#lunchBlocks .web{
+	left: 50px;
+	top: 350px;
+}
+
+#lunchBlocks .decider{
+	left: 450px;
+	top: 350px;
+}
+
+#lunchBlocks p{
+position: absolute;
+	left: 260px;
+	top: 550px;
+}
 
 
 
