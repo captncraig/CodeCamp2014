@@ -21,6 +21,64 @@
       <h2>Utah Code Camp, Spring 2014<h2>
     </div>
 	
+	<div id="in2" class='step' data-y="300" data-rotate-y="45">
+		<h1>What I work on</h1>
+		<p>Back End Web Services<p>
+		<p>Millions of requests per hour</p>
+		<p>SOAP and REST</p>
+	</div>
+	<div id="in3" class='step' data-y="600" data-rotate-y="90">
+		<h1>What I Value</h1>
+		<p>Performance<p>
+		<p>Ease of Development</p>
+		<p>Ease for clients</p>
+		<p>Stability</p>
+	</div>
+	<div id='why' data-y="900" class='step' style='text-align:center'>
+		<p>Why are we using WCF instead of Web API?</p>
+	</div>
+	<div id='why2' class='step' data-y="900" data-z='-300' style='text-align:center'>
+		<p>What about Nancy?</p>
+	</div>
+	<div id='why3' class='step' data-y="900" data-z='-600' style='text-align:center'>
+		<p>Why are we using IIS?</p>
+	</div>
+	<div id='why4' class='step' data-y="900" data-z='-900' style='text-align:center'>
+		<p style='font-size:400%'>Why are we using HTTP?</p>
+		<p class='substep' >What alternatives are there?</p>
+	</div>
+	
+	<div class='step' id='thrift' style='text-align:center;' data-rotate-y="540" ><p style='font-size:1000%'>Thrift</p></div>
+	<div class='step' id='what-is' data-x='900' data-rotate-y="360">
+		<h1>What is it?</h1>
+		<p class='substep'>Framework for Remote Procedure Calls (RPC)</p>
+		<p class='substep' style='position:relative; left:580px;top:-15px;'>^ Bad Word?</p>
+	</div>
+	<div class='step' id='philosophy' data-x='1800' data-rotate-y="180">
+	</div>
+	
+	<div id='cloud' class='step' data-x="2000" data-z='-2000' style='height:800px;width:900px;'>
+		<div style='font-size:100%'>actionscript</div>
+		<div style='font-size:150%'>c</div>
+		<div style='font-size:250%'>c#</div>
+		<div style='font-size:150%'>c++</div>
+		<div style='font-size:100%'>D</div>
+		<div style='font-size:100%'>delphi</div>
+		<div style='font-size:100%'>Erlang</div>
+		<div style='font-size:150%'>go</div>
+		<div style='font-size:100%'>haskell</div>
+		<div style='font-size:200%;font-weight:bold;'>java</div>
+		<div style='font-size:200%;font-weight:bold;'>javascript</div>
+		<div style='font-size:150%'>node.js</div>
+		<div style='font-size:100%'>ocaml</div>
+		<div style='font-size:150%'>perl</div>
+		<div style='font-size:180%'>php</div>
+		<div style='font-size:150%;font-weight:bold;'>ruby</div>
+		<div style='font-size:100%'>smalltalk</div>
+		<div style='font-size:150%;font-weight:bold;'>python</div>
+		<div style='font-size:150%'>objective c</div>
+		
+	</div>
 	
 	<div id="components" class="step" data-x="2000" data-y="0">
       <h1 class="line">Thrift Components</h1>
@@ -136,16 +194,34 @@
 	
   </div> 
   <script src="js/impress.js"></script>
+  <script src="js/seedrandom.js"></script>
   <script>
 	impress().init();
 	$(document).on('impress:stepenter', function(e) {
                     var currentSlide = $(e.target).attr('id');
  
-                    if (currentSlide === 'lunch') {
+                    if (currentSlide === 'transport') {
                         $("#components").hide();
                     }
                 });
-  
+	$(document).on('impress:substep-enter', function(e) {
+                    var currentSlide = $(e.target).attr('id');
+ 
+                    
+                });
+	$(function(){
+		Math.seedrandom(42);
+		$("#cloud div").each(function(a,b){
+			var el = $(b);
+			var angle = a*(2*Math.PI / 19);
+			console.log(angle);
+			var magnitude = Math.floor((Math.random()*300)+90);
+			var x = 400 + Math.cos(angle) * magnitude;
+			var y = Math.sin(angle) * magnitude + 300
+			el.css('left',''+x+'px');
+			el.css('top',''+y+'px');
+		});
+	});
   </script>
 
 </body>
