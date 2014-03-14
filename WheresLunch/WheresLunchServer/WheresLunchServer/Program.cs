@@ -33,6 +33,7 @@ namespace WheresLunchServer
 
         public void PlaceVote(Vote v)
         {
+            Console.WriteLine("Vote from {0} for {1}.",v.Name,v.Place);
             if(_votes.ContainsKey(v.Name)) throw new AlreadyVotedException();
             _votes[v.Name] = v.Place;
             _suggestions.Add(v.Place);
