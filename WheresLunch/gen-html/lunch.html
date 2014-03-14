@@ -194,16 +194,34 @@ code { line-height: 20px; }
 <h1>Thrift module: lunch</h1>
 <table class="table-bordered table-striped table-condensed"><thead><th>Module</th><th>Services</th><th>Data types</th><th>Constants</th></thead>
 <tr>
-<td>lunch</td><td><a href="#Svc_LunchLady">LunchLady</a><br/>
+<td>lunch</td><td><a href="#Svc_LunchService">LunchService</a><br/>
 <ul>
-<li><a href="#Fn_LunchLady_MakeDecision">MakeDecision</a></li>
+<li><a href="#Fn_LunchService_GetSuggestions">GetSuggestions</a></li>
+<li><a href="#Fn_LunchService_MakeDecision">MakeDecision</a></li>
+<li><a href="#Fn_LunchService_PlaceVote">PlaceVote</a></li>
 </ul>
 </td>
-<td></td>
+<td><a href="#Struct_AlreadyVotedException">AlreadyVotedException</a><br/>
+<a href="#Struct_Vote">Vote</a><br/>
+</td>
 <td></code></td>
 </tr></table>
-<hr/><h2 id="Services">Services</h2>
-<h3 id="Svc_LunchLady">Service: LunchLady</h3>
-<div class="definition"><h4 id="Fn_LunchLady_MakeDecision">Function: LunchLady.MakeDecision</h4>
+<hr/><h2 id="Structs">Data structures</h2>
+<div class="definition"><h3 id="Struct_Vote">Struct: Vote</h3>
+<table class="table-bordered table-striped table-condensed"><thead><th>Key</th><th>Field</th><th>Type</th><th>Description</th><th>Requiredness</th><th>Default value</th></thead>
+<tr><td>1</td><td>Name</td><td><code>string</code></td><td></td><td>default</td><td></td></tr>
+<tr><td>2</td><td>Place</td><td><code>string</code></td><td></td><td>default</td><td></td></tr>
+</table><br/>Struct represents a single vote
+<br/></div><div class="definition"><h3 id="Struct_AlreadyVotedException">Exception: AlreadyVotedException</h3>
+<table class="table-bordered table-striped table-condensed"><thead><th>Key</th><th>Field</th><th>Type</th><th>Description</th><th>Requiredness</th><th>Default value</th></thead>
+</table><br/>Means they already voted
+<br/></div><hr/><h2 id="Services">Services</h2>
+<h3 id="Svc_LunchService">Service: LunchService</h3>
+<div class="definition"><h4 id="Fn_LunchService_MakeDecision">Function: LunchService.MakeDecision</h4>
 <pre><code>string</code> MakeDecision()
+</pre></div><div class="definition"><h4 id="Fn_LunchService_GetSuggestions">Function: LunchService.GetSuggestions</h4>
+<pre><code>list&lt;<code>string</code>&gt;</code> GetSuggestions()
+</pre></div><div class="definition"><h4 id="Fn_LunchService_PlaceVote">Function: LunchService.PlaceVote</h4>
+<pre><code>void</code> PlaceVote(<code><a href="lunch.html#Struct_Vote">Vote</a></code> v)
+    throws <code><a href="lunch.html#Struct_AlreadyVotedException">AlreadyVotedException</a></code>
 </pre></div></div></body></html>
