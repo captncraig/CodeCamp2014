@@ -142,6 +142,11 @@ ul {
 	color: white;
 	left: 100px;
 }
+#components .genEx{
+	position: absolute;
+	top: 220px;
+	left: 350px;
+}
 #components .lib div{
 	position: absolute;
 	background-color: #BDD0E9;
