@@ -110,7 +110,6 @@ ul {
 #components{
 	height: 900px;
 	width: 900px;
-	border:1px solid black;
 }
 #components.past{
 	opacity: 1;
@@ -258,6 +257,18 @@ position: absolute;
 
 #cloud div{
 	position:absolute;
+}
+
+.big p{
+	font-size:300%;
+}
+
+.center{
+	text-align:center;
+}
+
+.nofade.past{
+	opacity:1;
 }
 
 

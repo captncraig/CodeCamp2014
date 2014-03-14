@@ -24,15 +24,15 @@
 	<div id="in2" class='step' data-y="300" data-rotate-y="45">
 		<h1>What I work on</h1>
 		<p>Back End Web Services<p>
-		<p>Millions of requests per hour</p>
-		<p>SOAP and REST</p>
+		<p class='substep'>Millions of requests per hour</p>
+		<p class='substep'>SOAP and REST</p>
 	</div>
 	<div id="in3" class='step' data-y="600" data-rotate-y="90">
 		<h1>What I Value</h1>
-		<p>Performance<p>
-		<p>Ease of Development</p>
-		<p>Ease for clients</p>
-		<p>Stability</p>
+		<p class='substep'>Performance<p>
+		<p class='substep'>Stability</p>
+		<p class='substep'>Ease of Development</p>
+		<p class='substep'>Ease for clients</p>
 	</div>
 	<div id='why' data-y="900" class='step' style='text-align:center'>
 		<p>Why are we using WCF instead of Web API?</p>
@@ -81,9 +81,61 @@
 		<div style='font-size:150%;font-weight:bold;'>ruby</div>
 		<div style='font-size:100%'>smalltalk</div>
 		<div style='font-size:150%;font-weight:bold;'>python</div>
-		<div style='font-size:150%'>objective c</div>
-		
+		<div style='font-size:150%'>Cocoa</div>
 	</div>
+	
+	<!--
+	<div id='notatoy' class='step'>
+		<p>NOT a toy.</p>
+		<p>Created at Facebook</p>
+		<p>In production use at twitter, among others</p>
+	</div> -->
+	
+	<div class='step big nofade center' id='idl'>
+		<p>Interface Description <span class='substep'>(IDL)</span></p>
+	</div>
+	<div class='step center big nofade' data-y="200">
+		<p>Language Agnostic Definition of your service.</p>
+	</div>
+	<div class='step center big nofade' data-y="550">
+		<p>Defines Data Types:</p>
+		<div class='substep'><pre  style="text-align:left;font-size:200%;position:relative;left:40%;">
+struct User{
+   1: i64 Id,
+   2: string Username,
+   4: byte Foo,
+   5: double Balance,
+   6: binary Img,
+   8: i32 Age,
+   9: bool IsPremium,
+   10: list&lt;i64&gt; Friends,
+   11: map&lt;string,string&gt; MiscProperties,
+}</pre></div>
+	</div>
+	<div class='step center big nofade' data-y="900">
+		<p>And Operations:</p>
+		<div class='substep'><pre  style="text-align:left;font-size:200%;position:relative;left:40%;">
+service UserService{
+   i32 CreateUser(1: User u)
+   User GetUSerDetails(1: i64 id)
+   void DeleteUser(4: i64 id)
+}</pre></div>
+	</div>
+	<div class='step center big nofade' data-y="1150">
+		<p>Even exceptions:</p>
+		<div class='substep'><pre  style="text-align:left;font-size:200%;position:relative;left:10%;">
+exception InvalidDataException{
+	1: string Reason
+}		
+service FooService{
+   i32 DoSomething(1: string x) throws(1: InvalidDataException i)
+}</pre></div>
+	</div>
+	<div class='step center big nofade' data-y="1340">
+		<p>Client and server code generated in any language.</p>
+	</div>
+	
+	<div class='step center big' data-x='-5000'><p>Decoupled components</p></div>
 	
 	<div id="components" class="step components" data-x="-10000" data-rotate-y='90' data-z="0">
       <h1 class="line">Thrift Components</h1>
@@ -104,14 +156,13 @@
 	  <div class='hand box substep'>Handler</div>
 	  <div class='substep handEx'>Implementation of generated interface<div class='substep'>Your business logic goes here.</div></div>
 	  <div class='serv box substep'>Server</div>
-	  <div class='client substep'>Client generated too!</div>
     </div>
 	
 	<div id="protocol" class="step" data-x="-10000" data-rotate-y='90' data-z="-1000" >
 		<h1>Protocol</h1>
 		<p>How do I turn a message into a sequence of bytes?</p>
 		<p class='substep' style="width:2000px;"><code>CreateUser(new User{Name="Joe",Password="ilovedolphins"});</code></p>
-		<p class='substep' style="width:2000px;"><code>POST /users {"Name":"Joe","Password":"ilovedolphins"}}</code></p>
+		<p class='substep' style="width:2000px;"><code>POST /users HTTP/1.1\r\n\r\n{"Name":"Joe","Password":"ilovedolphins"}}</code></p>
 		<p class='substep' style="width:2000px;"><code>€ŠØŠØØØÿCreateUserØØØØƒØŠ÷ØŠØØØæJoe÷Ø§ØØØçilovedolphinsØØ</code></p>
 		<p class='substep' style="width:2000px;"><code>‚!ØÿCreateUser£¢æJoe¢çilovedolphinsØØ</code></p>
 		<p class='substep' style="width:2000px;"><code>[1,"CreateUser",1,0,{"1":{"rec":{"1":{"str":"Joe"},"2":{"str":"ilovedolphins"}}}}]</code></p>
@@ -210,6 +261,12 @@
                     if (currentSlide === 'lunch') {
                         $("#components").hide();
                     }
+					
+					if(!$(e.target).hasClass('nofade')){
+						console.log("nonofade");
+						$(".nofade.past").removeClass('nofade');
+					}
+					
                 });
 	$(document).on('impress:substep-enter', function(e) {
                     var currentSlide = $(e.target).attr('id');
