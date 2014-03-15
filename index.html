@@ -7,13 +7,13 @@
 
   <link rel="stylesheet" href="css/style.css">
 
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.0.min.js'></script>
+  <link href='css/font.css' rel='stylesheet' type='text/css'>
+<script type='text/javascript' src='js/jquery.js'></script>
 </head>
 <body>
 
   <div id="impress">
-
+	<div class='step' data-z='-50000' style='width:90%; left: -600px;' ><img src='SponsorSlide.png'/></div>
    
     <div id="introduction" class="step" data-x="0" data-y="0">
       <h1 class="line">High Performance Web Services with Apache Thrift</h1>
@@ -39,6 +39,8 @@
 	</div>
 	<div id='why2' class='step' data-y="900" data-z='-300' style='text-align:center'>
 		<p>What about Nancy?</p>
+		<p class='substep'>ServiceStack?</p>
+		<p class='substep'>FuBu?</p>
 	</div>
 	<div id='why3' class='step' data-y="900" data-z='-600' style='text-align:center'>
 		<p>Why are we using IIS?</p>
@@ -253,10 +255,10 @@ service FooService{
 		<p>Use what makes sense for you.</p>
 	</div>
 	
-	<div class='step' id='outro' style="width:1000px;">
+	<div class='step' id='outro' style="width:1000px" data-z="5000" data-x="-1000" data-rotate-y="180">
 		<h1>Thanks for listening!</h1>
 		<p>Thrift home page:<a href='http://thrift.apache.org'>thrift.apache.org</a></p>
-		<p>This presentation:<a href='captncraig.github.com/CodeCamp2014'>captncraig.github.com/CodeCamp2014</a></p>
+		<p>This presentation:<a href='http://captncraig.github.com/CodeCamp2014'>captncraig.github.com/CodeCamp2014</a></p>
 		<p>@captncraig</a></p>
 	</div>
 	
