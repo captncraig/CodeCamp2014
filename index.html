@@ -13,7 +13,7 @@
 <body>
 
   <div id="impress">
-	<div class='step' data-z='-50000' style='width:90%; left: -600px;' ><img src='SponsorSlide.png'/></div>
+	<div class='step' data-z='-500' style='width:90%; left: -600px;' ><img src='SponsorSlide.png'/></div>
    
     <div id="introduction" class="step" data-x="0" data-y="0">
       <h1 class="line">High Performance Web Services with Apache Thrift</h1>
@@ -88,12 +88,11 @@
 		<div style='font-size:150%'>scala</div>
 	</div>
 	
-	<!--
-	<div id='notatoy' class='step'>
-		<p>NOT a toy.</p>
-		<p>Created at Facebook</p>
-		<p>In production use at twitter, among others</p>
-	</div> -->
+	<div id='notatoy' class='step' data-x="1000" data-z='-1000'>
+		<p>NOT just a toy.</p>
+		<p class='substep'>Created at Facebook</p>
+		<p class='substep'>In production use at twitter, foursquare used by Cassandra, HBase, Evernote and others</p>
+	</div>
 	
 	<div class='step big nofade center' id='idl'>
 		<p>Interface Description <span class='substep'>(IDL)</span></p>
@@ -258,6 +257,7 @@ service FooService{
 	<div class='step' id='outro' style="width:1000px" data-z="5000" data-x="-1000" data-rotate-y="180">
 		<h1>Thanks for listening!</h1>
 		<p>Thrift home page:<a href='http://thrift.apache.org'>thrift.apache.org</a></p>
+		<p><a href='http://diwakergupta.github.io/thrift-missing-guide/'>Thrift: The missing Guide</a></p>
 		<p>This presentation:<a href='http://captncraig.github.com/CodeCamp2014'>captncraig.github.com/CodeCamp2014</a></p>
 		<p>@captncraig</a></p>
 	</div>
